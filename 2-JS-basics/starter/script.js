@@ -30,6 +30,7 @@ console.log(job);
 * Variable mutation and type coercion
 */
 
+/*
 var firstName = 'Trevor';
 var age = 41;
 
@@ -50,3 +51,35 @@ alert(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + is
 
 var lastName = prompt('What is his last name?');
 console.log(firstName + ' ' + lastName);
+*/
+
+/****************************
+* Basic operators
+*/
+
+// Math operators
+var currYear, ageTrevor, ageElyse, yearTrevor, yearElyse;
+currYear = 2018;
+ageTrevor = 41;
+ageElyse = 30;
+
+yearTrevor = currYear - ageTrevor;
+yearElyse = currYear - ageElyse;
+
+console.log(yearTrevor);
+
+console.log(currYear + 2);
+console.log(currYear * 2);
+console.log(currYear / 10);
+
+// Logical operators
+var ElyseOlder = ageElyse > ageTrevor;
+console.log(ElyseOlder);
+
+// TypeOf operator
+console.log(typeof ElyseOlder);
+console.log(typeof ageElyse);
+console.log(typeof 'Trevor is older than Elyse.');
+
+var x;
+console.log(typeof x);
