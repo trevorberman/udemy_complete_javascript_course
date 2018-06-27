@@ -56,7 +56,7 @@ console.log(firstName + ' ' + lastName);
 /****************************
 * Basic operators
 */
-
+/*
 // Math operators
 var currYear, ageTrevor, ageElyse, yearTrevor, yearElyse;
 currYear = 2018;
@@ -83,3 +83,41 @@ console.log(typeof 'Trevor is older than Elyse.');
 
 var x;
 console.log(typeof x);
+*/
+
+/****************************
+* Operator precedence
+*/
+
+var currYear, yearTrevor, fullAge;
+currYear = 2018;
+yearTrevor = 1976;
+fullAge = 18;
+
+// Multiple operators
+var isFullAge = currYear - yearTrevor >= fullAge;
+console.log(isFullAge);
+
+// Grouping
+var ageTrevor = currYear - yearTrevor;
+var ageElyse = 30;
+var averageAge = (ageTrevor + ageElyse) / 2;
+console.log(averageAge);
+
+// Multiple assignments
+var x, y;
+x = y = (3 + 5) * 4 - 6; // 8 * 4 - 6 // 32 - 6 // 26
+console.log(x, y);
+
+// More operators
+// x = x * 2;
+x *= 2;
+console.log(x);
+
+x += 10;
+console.log(x);
+
+// x = x + 1;
+// x += 1;
+x++;
+console.log(x);
