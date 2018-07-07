@@ -293,7 +293,7 @@ switch (true) {
 
 // JS Falsy values: undefined, null, 0, '', NaN
 // JS Truthy values: all values that are NOT Falsy
-
+/*
 var height;
 height = 23;
 
@@ -306,4 +306,60 @@ if (height || height === 0) {
 // Equality operators
 if (height == 23) {
   console.log('The == operator does type coercion!');
+}
+*/
+
+/****************************
+* Coding Challenge #2
+*/
+/*
+John and Mike both play basketball on different teams. In the last 3 games John's team scored 89, 120, and 103 points while Mike's team scored 116, 94, and 123 points.
+
+1. Calculate the average score for each team.
+
+2. Decide which team wins in average (highest average score), and print the winner to the console. Also include the average score in the output.
+
+3. Then change the scores to show different winners. Don't forget to take into account there might be a draw (the same average score).
+
+4. **BONUS** Mary also plays basketball and her team scored 97, 134 and 105 points. Like before, log the average winner to the console.
+--HINT: You will need the && operator to take the decision.
+
+5. Like before, change the scores to generate different winners keeping in mind there might be draws.
+*/
+/*
+// Original average scores
+var johnAvgScore = (89 + 210 + 103) / 3;
+var mikeAvgScore = (116 + 94 + 123) / 3;
+var maryAvgScore = (97 + 134 + 105) / 3;
+*/
+
+// 1.
+var johnAvgScore = (89 + 210 + 400) / 3;
+var mikeAvgScore = (89 + 210 + 400) / 3;
+var maryAvgScore = (89 + 210 + 400) / 3;
+console.log('The average scores are:' + '\n' + 'John: ' + johnAvgScore + '\n' + 'Mike: ' + mikeAvgScore + '\n' + 'Mary: ' + maryAvgScore);
+
+// 2-5.
+if (johnAvgScore > mikeAvgScore && johnAvgScore > maryAvgScore) {
+    console.log('John wins with an average score of ' + johnAvgScore);
+} else if (mikeAvgScore > johnAvgScore && mikeAvgScore > maryAvgScore) {
+    console.log('Mike wins with an average score of ' + mikeAvgScore);
+} else if (maryAvgScore > johnAvgScore && maryAvgScore > mikeAvgScore) {
+  console.log('Mary wins with an average score of ' + maryAvgScore);
+} else {
+    console.log('We have a draw!');
+    switch (true) {
+      case johnAvgScore === mikeAvgScore && johnAvgScore === maryAvgScore:
+        console.log('Everyone tied with average scores of ' + johnAvgScore);
+        break;
+      case johnAvgScore === mikeAvgScore:
+        console.log('John and Mike are tied with average scores of ' + johnAvgScore);
+        break;
+      case johnAvgScore === maryAvgScore:
+        console.log('John and Mary are tied with average scores of ' + johnAvgScore);
+        break;
+      case mikeAvgScore === maryAvgScore:
+        console.log('Mike and Mary are tied with average scores of ' + mikeAvgScore);
+        break;
+    }
 }
