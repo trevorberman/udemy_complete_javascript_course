@@ -333,6 +333,7 @@ var mikeAvgScore = (116 + 94 + 123) / 3;
 var maryAvgScore = (97 + 134 + 105) / 3;
 */
 
+/*
 // 1.
 var johnAvgScore = (89 + 210 + 400) / 3;
 var mikeAvgScore = (89 + 210 + 400) / 3;
@@ -363,3 +364,33 @@ if (johnAvgScore > mikeAvgScore && johnAvgScore > maryAvgScore) {
         break;
     }
 }
+*/
+
+/****************************
+* Functions
+*/
+
+function calcAge(birthYear) {
+  return 2018 - birthYear;
+}
+
+// Function call
+var ageJohn = calcAge(1990);
+var ageMike = calcAge(1948);
+var ageMary = calcAge(1976);
+console.log(ageJohn, ageMike, ageMary);
+
+function yearsUntilRetired(birthDate, firstName) {
+  var age = calcAge(birthDate);
+  var retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(firstName + ' retires in ' + retirement + ' years.');
+  } else {
+    console.log(firstName + ' is already retired.');          
+  }
+}
+
+yearsUntilRetired(1990, 'John');
+yearsUntilRetired(1948, 'Mike');
+yearsUntilRetired(1976, 'Mary');
