@@ -399,7 +399,7 @@ yearsUntilRetired(1976, 'Mary');
 /****************************
 * Function statements and expressions
 */
-
+/*
 // Function statement / declaration
 // JS statements perform actions, but do not produce immediate values.
 // function whatDoYouDo(job, firstName) {}
@@ -423,3 +423,42 @@ console.log(whatDoYouDo('teacher', 'John'));
 console.log(whatDoYouDo('magister', 'Mike'));
 console.log(whatDoYouDo('instructor', 'Mary'));
 console.log(whatDoYouDo('retired', 'Mark'));
+*/
+
+/****************************
+* Arrays
+*/
+
+// Different ways of initializing arrays
+var names = ['John', 'Mike', 'Mary'];
+var years = new Array(1990, 1948, 1976);
+
+console.log(names); // returns length of array + list of contents
+console.log(names[0]); // returns value at position 0 (1st value in array)
+console.log(names.length); // returns number of values in the arrays
+
+// Matate array data
+names[1] = 'Ben';
+names[names.length] = 'Grosso'; // adds value as last element in the array
+console.log(names);
+
+// Arrays with different data types
+var john = ['John', 'Smith', 1990, 'teacher', false];
+
+
+// SOME methods that apply to Arrays
+john.push('blue'); // add element at end of Arrays
+john.unshift('Mr.'); // add element to begining of array
+console.log(john);
+
+john.pop(); // removes element from end of the array
+john.shift(); // removes element to begining of array
+console.log(john);
+
+console.log(john.indexOf(1990)); // returns position of value passed in
+console.log(john.indexOf(23)); // returns -1 if element is not in the array
+
+// test for element/value in an array
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer.' : 'John IS a designer.';
+
+console.log(isDesigner);
