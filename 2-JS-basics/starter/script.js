@@ -369,7 +369,7 @@ if (johnAvgScore > mikeAvgScore && johnAvgScore > maryAvgScore) {
 /****************************
 * Functions
 */
-
+/*
 function calcAge(birthYear) {
   return 2018 - birthYear;
 }
@@ -387,10 +387,39 @@ function yearsUntilRetired(birthDate, firstName) {
   if (retirement > 0) {
     console.log(firstName + ' retires in ' + retirement + ' years.');
   } else {
-    console.log(firstName + ' is already retired.');          
+    console.log(firstName + ' is already retired.');
   }
 }
 
 yearsUntilRetired(1990, 'John');
 yearsUntilRetired(1948, 'Mike');
 yearsUntilRetired(1976, 'Mary');
+*/
+
+/****************************
+* Function statements and expressions
+*/
+
+// Function statement / declaration
+// JS statements perform actions, but do not produce immediate values.
+// function whatDoYouDo(job, firstName) {}
+
+// Function expression example
+// JS 'expressions' always produce a (single) value.
+var whatDoYouDo = function(job, firstName) {
+  switch (job) {
+    case 'teacher':
+      return firstName + ' teaches kids how to code.'
+    case 'magister':
+      return firstName + ' teaches kids how to speak Latin.'
+    case 'instructor':
+      return firstName + ' keeps the kids in line.';
+    default:
+      return firstName + ' does something else.'
+  }
+}
+
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('magister', 'Mike'));
+console.log(whatDoYouDo('instructor', 'Mary'));
+console.log(whatDoYouDo('retired', 'Mark'));
