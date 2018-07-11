@@ -428,7 +428,7 @@ console.log(whatDoYouDo('retired', 'Mark'));
 /****************************
 * Arrays
 */
-
+/*
 // Different ways of initializing arrays
 var names = ['John', 'Mike', 'Mary'];
 var years = new Array(1990, 1948, 1976);
@@ -462,3 +462,58 @@ console.log(john.indexOf(23)); // returns -1 if element is not in the array
 var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer.' : 'John IS a designer.';
 
 console.log(isDesigner);
+*/
+
+/****************************
+* Code challenge #3
+*/
+
+/*
+John and his family went on a holiday and went to 3 different resturants. The bills were $124, $48, and $268.
+
+To tip the waiter a fair amount, John created a simple tip calculator (as a function). He likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+
+In the end, John would like to have 2 arrays:
+1) Containing all three tips (one for each bill)
+2) Containing all three final paid amounts (bill + tip).
+*/
+
+var bills = [124, 48, 268]; // tips 18.6, 9.6, 26.8
+
+function calcTip(billTotal) {
+  var tip;
+  if (billTotal < 50) {
+    tip = billTotal * 0.2;
+  } else if (billTotal >= 50 && billTotal <= 200) {
+      tip = billTotal * 0.15;
+  } else {
+      tip = billTotal * 0.1;
+  }
+  return tip;
+}
+
+console.log(calcTip(bills[0]));
+console.log(calcTip(bills[1]));
+console.log(calcTip(bills[2]));
+
+var allTips = function(paid) {
+  var allTips = [];
+  allTips[0] = calcTip(paid[0]);
+  allTips[1] = calcTip(paid[1]);
+  allTips[2] = calcTip(paid[2]);
+  return allTips;
+}
+
+console.log(allTips(bills));
+
+function allTotalBills(paid, tips) {
+  var totalBills = [];
+  totalBills[0] = paid[0] + tips[0];
+  totalBills[1] = paid[1] + tips[1];
+  totalBills[2] = paid[2] + tips[2];
+  return totalBills;
+}
+
+console.log(allTotalBills(bills, allTips(bills)));
+
+// Refactoring into a single function is beyond the scope of this challenge.
