@@ -479,7 +479,7 @@ In the end, John would like to have 2 arrays:
 */
 
 var bills = [124, 48, 268]; // tips 18.6, 9.6, 26.8
-
+/*
 function calcTip(billTotal) {
   var tip;
   if (billTotal < 50) {
@@ -515,5 +515,39 @@ function allTotalBills(paid, tips) {
 }
 
 console.log(allTotalBills(bills, allTips(bills)));
+*/
+// Refactored
 
-// Refactoring into a single function is beyond the scope of this challenge.
+function tipCalculator(bill) {
+  var percentage;
+  if (bill < 50) {
+    percentage = 0.20;
+  } else if (bill >= 50 && bill <= 200) {
+      percentage = 0.15;
+  } else {
+      percentage = 0.10;
+  }
+  return percentage * bill;
+}
+
+console.log(tipCalculator(10));
+console.log(tipCalculator(100));
+console.log(tipCalculator(1000));
+
+/*
+var tips = [];
+tips[0] = tipCalculator(bills[0]);
+tips[1] = tipCalculator(bills[1]);
+tips[2] = tipCalculator(bills[2]);
+*/
+var tips = [tipCalculator(bills[0]),
+            tipCalculator(bills[1]),
+            tipCalculator(bills[2])];
+// console.log(tips);
+
+var totalBills = [bills[0] + tips[0],
+                  bills[1] + tips[1],
+                  bills[2] + tips[2]];
+// console.log(totalBills);
+
+console.log(tips, totalBills);
