@@ -517,7 +517,7 @@ function allTotalBills(paid, tips) {
 console.log(allTotalBills(bills, allTips(bills)));
 */
 // Refactored
-
+/*
 function tipCalculator(bill) {
   var percentage;
   if (bill < 50) {
@@ -534,12 +534,6 @@ console.log(tipCalculator(10));
 console.log(tipCalculator(100));
 console.log(tipCalculator(1000));
 
-/*
-var tips = [];
-tips[0] = tipCalculator(bills[0]);
-tips[1] = tipCalculator(bills[1]);
-tips[2] = tipCalculator(bills[2]);
-*/
 var tips = [tipCalculator(bills[0]),
             tipCalculator(bills[1]),
             tipCalculator(bills[2])];
@@ -551,3 +545,38 @@ var totalBills = [bills[0] + tips[0],
 // console.log(totalBills);
 
 console.log(tips, totalBills);
+*/
+
+/****************************
+* Objects and properties
+*/
+
+// Objects group together different variables through defined key:value pairs
+// Using "object literal"; a container of variable "properties"
+var john = {
+  firstName: 'John',
+  lastName: 'Roberts',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false
+};
+
+// ways of accessing the object through its properties
+console.log(john);
+console.log(john.firstName);
+console.log(john['lastName']);
+var x = 'birthYear';
+console.log(john[x]);
+
+// Mutate an object
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+// Using new Object syntax
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
