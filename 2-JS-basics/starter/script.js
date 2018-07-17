@@ -550,7 +550,7 @@ console.log(tips, totalBills);
 /****************************
 * Objects and properties
 */
-
+/*
 // Objects group together different variables through defined key:value pairs
 // Using "object literal"; a container of variable "properties"
 var john = {
@@ -580,3 +580,42 @@ jane.firstName = 'Jane';
 jane.birthYear = 1969;
 jane['lastName'] = 'Smith';
 console.log(jane);
+*/
+
+/****************************
+* Objects and methods
+*/
+// Methods are functions attached to objects.
+/*
+var john = {
+  firstName: 'John',
+  lastName: 'Roberts',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false,
+  calcAge: function(birthYear) {
+    return 2018 - birthYear;
+  }
+};
+
+console.log(john.calcAge(1990));
+console.log(john.calcAge(john.birthYear));
+*/
+
+var john = {
+  firstName: 'John',
+  lastName: 'Roberts',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false,
+  // example using "this" keyword to reference object's birthYear
+  calcAge: function() {
+    this.age = 2018 - this.birthYear;
+  }
+};
+
+john.calcAge();
+console.log(john.age);
+console.log(john);
