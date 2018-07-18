@@ -603,6 +603,7 @@ console.log(john.calcAge(1990));
 console.log(john.calcAge(john.birthYear));
 */
 
+/*
 var john = {
   firstName: 'John',
   lastName: 'Roberts',
@@ -619,3 +620,55 @@ var john = {
 john.calcAge();
 console.log(john.age);
 console.log(john);
+*/
+
+/****************************
+* Coding challenge #4
+*/
+/*
+Implement the same functionality of coding challenge #1 with objects and methods
+
+Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / height^2 = mass / (height * height).
+** Mass in kg, Height in meters
+*/
+// 1. Create an object for each Mark and Jon containing properties for their full name, mass, and height.
+
+// 2. Add a method to each object to calculate their BMI.
+// Save the BMI to the object and also return it from the method.
+
+// 3. Log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
+
+var john = {
+  firstName: 'John',
+  lastName: 'Roberts',
+  mass: 110,
+  height: 12,
+  calcBMI: function() {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  }
+};
+
+var mark = {
+  firstName: 'Mark',
+  lastName: 'Markson',
+  mass: 100,
+  height: 10,
+  calcBMI: function() {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  }
+};
+
+// john.calcBMI();
+// mark.calcBMI();
+// console.log(john, mark);
+// console.log(john.bmi);
+
+if (john.calcBMI() > mark.calcBMI()) {
+  console.log(john.firstName + ' ' + john.lastName + ' has the highest BMI of ' + john.bmi);
+} else if (mark.bmi > john.bmi) {
+    console.log(mark.firstName + ' ' + mark.lastName + ' has the highest BMI of ' + mark.bmi);
+} else {
+    console.log(john.firstName + ' ' + john.lastName + ' and ' + mark.firstName + ' ' + mark.lastName + ' have BMIs that are equal.');
+}
