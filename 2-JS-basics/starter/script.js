@@ -478,7 +478,7 @@ In the end, John would like to have 2 arrays:
 2) Containing all three final paid amounts (bill + tip).
 */
 
-var bills = [124, 48, 268]; // tips 18.6, 9.6, 26.8
+// var bills = [124, 48, 268]; // tips 18.6, 9.6, 26.8
 /*
 function calcTip(billTotal) {
   var tip;
@@ -698,6 +698,7 @@ while (i < john.length) {
 }
 */
 
+/*
 // continue and break statements
 // Break statements to break out of a loop
 // Continue statements to quit current itteration of loop and continue with the next one
@@ -716,3 +717,53 @@ for (var i = 0; i < john.length; i++) {
 for (var i = john.length - 1; i >= 0; i--) {
   console.log(john[i]);
 }
+*/
+
+/****************************
+* Coding challenge #5
+*/
+
+// Create a more advanced version of the previous tip calculator using everything learned in this section.
+
+/*
+John and his family went on a holiday and went to 5 different resturants. The bills were $124, $48, $268, $180, and $42.
+
+John likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+
+Implement a tip calculator using objects and loops:
+1. Create an object with an array for the bill values.
+2. Add a method to calculate the tip.
+3. This method should include a loop to iterate over all the paid bills and do the tip calculations.
+4. As an output, create:
+  a. A new array containing all tips
+  b. An array containing final paid amounts (bill + tip)
+  HINT: Start with two empty arrays [] as properties and then fill them up in the loop.
+
+EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different resturants. The bills were $77, $375, $110, and $45.
+
+Mark line to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300.
+
+5. Implement the same functionality as before, this time using Mark's tipping rules.
+
+6. Create a function (NOT a method) to calculate the average of a given array of tips.
+HINT: Loop over the array, and in each itteration store the currnet sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it.
+
+7. Calculate the average tip for each family.
+
+8. Log to the console which family paid the highest tips on average.
+*/
+
+var johnPaid {
+  billValues: [124, 48, 268, 180, 42],
+  calcTip: function(bill) {
+    var percentage;
+    if (bill < 50) {
+      percentage = .20;
+    } else if (bill >= 50 && bill <= 200) {
+        percentage = .15;
+    } else (bill > 200) {
+        percentage = .10;
+    }
+    return percentage * bill;
+  }
+};
