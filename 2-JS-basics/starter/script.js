@@ -638,6 +638,7 @@ Mark and John are trying to compare their BMI (Body Mass Index), which is calcul
 
 // 3. Log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
 
+/*
 var john = {
   firstName: 'John',
   lastName: 'Roberts',
@@ -671,4 +672,47 @@ if (john.calcBMI() > mark.calcBMI()) {
     console.log(mark.firstName + ' ' + mark.lastName + ' has the highest BMI of ' + mark.bmi);
 } else {
     console.log(john.firstName + ' ' + john.lastName + ' and ' + mark.firstName + ' ' + mark.lastName + ' have BMIs that are equal.');
+}
+*/
+
+/****************************
+* Loops and iteration
+*/
+
+/*
+// For Loop
+for (var i = 1; i <= 20; i += 2) {
+  console.log(i);
+}
+
+var john = ['John', 'Smith', 1990, 'teacher', false];
+for (var i = 0; i < john.length; i++) {
+  console.log(john[i]);
+}
+
+// While loop
+var i = 0;
+while (i < john.length) {
+  console.log(john[i]);
+  i++;
+}
+*/
+
+// continue and break statements
+// Break statements to break out of a loop
+// Continue statements to quit current itteration of loop and continue with the next one
+var john = ['John', 'Smith', 1990, 'teacher', false];
+for (var i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') continue;
+  console.log(john[i]);
+}
+
+for (var i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') break;
+  console.log(john[i]);
+}
+
+// Looping backwards
+for (var i = john.length - 1; i >= 0; i--) {
+  console.log(john[i]);
 }
