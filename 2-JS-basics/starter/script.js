@@ -755,15 +755,18 @@ HINT: Loop over the array, and in each itteration store the currnet sum in a var
 
 var johnPaid {
   billValues: [124, 48, 268, 180, 42],
-  calcTip: function(bill) {
-    var percentage;
-    if (bill < 50) {
-      percentage = .20;
-    } else if (bill >= 50 && bill <= 200) {
-        percentage = .15;
-    } else (bill > 200) {
-        percentage = .10;
+  calcTip: function() {
+    for (i = 0; i < this.billValues.length; i++) {
+      var percentage;
+      if (this.billValues[i] < 50) {
+        percentage = .20;
+      } else if (this.billValues[i] >= 50 && this.billValues[i] <= 200) {
+          percentage = .15;
+      } else (this.billValues[i] > 200) {
+          percentage = .10;
+      }
+      this.tips[i] = percentage * this.billValues[i];
+      // return percentage * this.billValues[i];
     }
-    return percentage * bill;
   }
 };
