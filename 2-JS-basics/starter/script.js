@@ -753,8 +753,10 @@ HINT: Loop over the array, and in each itteration store the currnet sum in a var
 8. Log to the console which family paid the highest tips on average.
 */
 
-var johnPaid {
+var johnPaid = {
   billValues: [124, 48, 268, 180, 42],
+  tips: [],
+  finalBills: [],
   calcTip: function() {
     for (i = 0; i < this.billValues.length; i++) {
       var percentage;
@@ -762,11 +764,16 @@ var johnPaid {
         percentage = .20;
       } else if (this.billValues[i] >= 50 && this.billValues[i] <= 200) {
           percentage = .15;
-      } else (this.billValues[i] > 200) {
+      } else {
           percentage = .10;
       }
       this.tips[i] = percentage * this.billValues[i];
+      this.finalBills[i] = this.tips[i] + this.billValues[i];
+      // return this.tips, this.finalBills;
       // return percentage * this.billValues[i];
     }
   }
 };
+
+johnPaid.calcTip();
+console.log(johnPaid.tips, johnPaid.finalBills);
