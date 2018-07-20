@@ -741,12 +741,12 @@ Implement a tip calculator using objects and loops:
 
 EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different resturants. The bills were $77, $375, $110, and $45.
 
-Mark line to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300.
+Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300.
 
 5. Implement the same functionality as before, this time using Mark's tipping rules.
 
 6. Create a function (NOT a method) to calculate the average of a given array of tips.
-HINT: Loop over the array, and in each itteration store the currnet sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it.
+HINT: Loop over the array, and in each itteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it.
 
 7. Calculate the average tip for each family.
 
@@ -777,3 +777,50 @@ var johnPaid = {
 
 johnPaid.calcTip();
 console.log(johnPaid.tips, johnPaid.finalBills);
+
+
+var markPaid = {
+  billValues: [77, 375, 110, 45],
+  tips: [],
+  finalBills: [],
+  calcTip: function() {
+    for (i = 0; i < this.billValues.length; i++) {
+      var percentage;
+      if (this.billValues[i] < 100) {
+        percentage = .20;
+      } else if (this.billValues[i] >= 100 && this.billValues[i] <= 300) {
+          percentage = .10;
+      } else {
+          percentage = .25;
+      }
+      this.tips[i] = percentage * this.billValues[i];
+      this.finalBills[i] = this.tips[i] + this.billValues[i];
+    }
+  }
+};
+
+markPaid.calcTip();
+console.log(markPaid.tips, markPaid.finalBills);
+
+var averageTip = function(tips) {
+  var average = 0;
+  var i = 0;
+  while (i < tips.length) {
+    average = average + tips[i];
+    i++;
+  }
+  average = average / tips.length;
+  return average;
+}
+
+johnPaid.averageTip = averageTip(johnPaid.tips);
+markPaid.averageTip = averageTip(markPaid.tips);
+var difference;
+
+if (johnPaid.averageTip > markPaid.averageTip) {
+  difference = johnPaid.averageTip - markPaid.averageTip;
+  console.log('John\'s family paid $' + johnPaid.averageTip + ', the highest tips on average; $' + difference + ' more than Mark\'s family paid.');
+} else {
+  difference = markPaid.averageTip - johnPaid.averageTip;
+  console.log('Mark\'s family paid $' + markPaid.averageTip + ', the highest tips on average; $' + difference + ' more than John\'s family paid.');
+}
