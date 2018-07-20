@@ -754,38 +754,41 @@ HINT: Loop over the array, and in each itteration store the current sum in a var
 */
 
 var johnPaid = {
+  fullName: 'John Smith',
   billValues: [124, 48, 268, 180, 42],
-  tips: [],
-  finalBills: [],
   calcTip: function() {
+    this.tips = [];
+    this.finalBills = [];
+    var percentage;
+    var bill;
     for (i = 0; i < this.billValues.length; i++) {
-      var percentage;
-      if (this.billValues[i] < 50) {
+      bill = this.billValues[i];
+      if (bill < 50) {
         percentage = .20;
-      } else if (this.billValues[i] >= 50 && this.billValues[i] <= 200) {
+      } else if (bill >= 50 && bill <= 200) {
           percentage = .15;
       } else {
           percentage = .10;
       }
-      this.tips[i] = percentage * this.billValues[i];
-      this.finalBills[i] = this.tips[i] + this.billValues[i];
-      // return this.tips, this.finalBills;
-      // return percentage * this.billValues[i];
+      this.tips[i] = percentage * bill;
+      this.finalBills[i] = this.tips[i] + bill;
     }
   }
 };
 
 johnPaid.calcTip();
+console.log(johnPaid);
 console.log(johnPaid.tips, johnPaid.finalBills);
 
 
 var markPaid = {
+  fullName: 'Mark Miller',
   billValues: [77, 375, 110, 45],
-  tips: [],
-  finalBills: [],
   calcTip: function() {
+    this.tips = [];
+    this.finalBills = [];
+    var percentage;
     for (i = 0; i < this.billValues.length; i++) {
-      var percentage;
       if (this.billValues[i] < 100) {
         percentage = .20;
       } else if (this.billValues[i] >= 100 && this.billValues[i] <= 300) {
@@ -800,17 +803,17 @@ var markPaid = {
 };
 
 markPaid.calcTip();
+console.log(markPaid);
 console.log(markPaid.tips, markPaid.finalBills);
 
 var averageTip = function(tips) {
-  var average = 0;
+  var sum = 0;
   var i = 0;
   while (i < tips.length) {
-    average = average + tips[i];
+    sum = sum + tips[i];
     i++;
   }
-  average = average / tips.length;
-  return average;
+  return sum / tips.length;
 }
 
 johnPaid.averageTip = averageTip(johnPaid.tips);
