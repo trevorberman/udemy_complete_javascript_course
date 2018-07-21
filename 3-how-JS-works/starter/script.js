@@ -1,6 +1,7 @@
 ///////////////////////////////////////
 // Lecture: Hoisting
 
+/*
 // Function Hoisting
 calcAge(1965);
 
@@ -33,7 +34,7 @@ function foo() {
 }
 foo();
 console.log(age);
-
+*/
 
 
 
@@ -41,10 +42,11 @@ console.log(age);
 ///////////////////////////////////////
 // Lecture: Scoping
 
-
-// First scoping example
+// The ONLY way to create a new scope in JS is to write a new function!
 
 /*
+// First scoping example
+
 var a = 'Hello!';
 first();
 
@@ -63,7 +65,7 @@ function first() {
 
 // Example to show the differece between execution stack and scope chain
 
-/*
+
 var a = 'Hello!';
 first();
 
@@ -73,7 +75,7 @@ function first() {
 
     function second() {
         var c = 'Hey!';
-        third()
+        third();
     }
 }
 
@@ -81,7 +83,7 @@ function third() {
     var d = 'John';
     console.log(a + b + c + d);
 }
-*/
+
 
 
 
