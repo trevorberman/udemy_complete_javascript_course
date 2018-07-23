@@ -13,7 +13,8 @@ var scores, roundScore, activePlayer;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 1;  // Reads active player's score out of scores array.
+// activePlayer = 0 because Player 1 always begins by default.
+activePlayer = 0;  // Reads active player's score out of scores array.
 
 document.querySelector('.dice').style.display = 'none';
 
@@ -23,7 +24,7 @@ document.getElementById('score-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
 document.getElementById('current-1').textContent = '0';
 
-// ex: event listener with anonymous callback function
+// Dice roll event listener with anonymous callback function
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
   // Roll the dice to get a random number >= 1 && <= 6
@@ -35,6 +36,28 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   diceDom.src = 'dice-' + dice + '.png';
 
   // Update the 'round' score IF the rolled number was NOT a 1.
+  if (dice !== 1) {
+    // Add the roll to 'round' score.
+    roundScore += dice;
+    document.querySelector('#current-' + activePlayer).textContent = roundScore;
+  } else {
+    // Switch to next player.
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+    // Reset 'round' score to 0.
+    roundScore = 0;
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+
+    // Indicate which player is active.
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    // Hide the dice until the now active player rolls.
+    document.querySelector('.dice').style.display = 'none';
+
+    // TODO: Improve UX so player sees a 1 rolled before clearing the score and switching players.
+  }
 
 });
 
