@@ -16,6 +16,7 @@ roundScore = 0;
 // activePlayer = 0 because Player 1 always begins by default.
 activePlayer = 0;  // Reads active player's score out of scores array.
 
+// Hide dice at game start.
 document.querySelector('.dice').style.display = 'none';
 
 // Set player 'round' and 'global' scores to 0.
@@ -42,25 +43,49 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.querySelector('#current-' + activePlayer).textContent = roundScore;
   } else {
     // Switch to next player.
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-
-    // Reset 'round' score to 0.
-    roundScore = 0;
-    document.getElementById('current-0').textContent = '0';
-    document.getElementById('current-1').textContent = '0';
-
-    // Indicate which player is active.
-    document.querySelector('.player-0-panel').classList.toggle('active');
-    document.querySelector('.player-1-panel').classList.toggle('active');
-
-    // Hide the dice until the now active player rolls.
-    document.querySelector('.dice').style.display = 'none';
-
-    // TODO: Improve UX so player sees a 1 rolled before clearing the score and switching players.
+    nextPlayer();
   }
-
 });
 
+// Hold score event listener with anonymous callback function
+document.querySelector('.btn-hold').addEventListener('click', function() {
+
+  // Add CURRENT round score to global score.
+  scores[activePlayer] += roundScore;
+
+  // Update the UI.
+  document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+  // Check if the player won the game.
+  if (scores[activePlayer] >= 100) {
+    document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+    document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+  } else {
+    // Switch to next player.
+    nextPlayer();
+  }
+});
+
+function  nextPlayer() {
+  // Switch to next player.
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+  // Reset 'round' score to 0.
+  roundScore = 0;
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+
+  // Indicate which player is active.
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active');
+
+  // Hide the dice until the now active player rolls.
+  document.querySelector('.dice').style.display = 'none';
+
+  // TODO: Improve UX so player sees a 1 rolled before clearing the score and switching players.
+}
 
 
 // FOR LATER USE
