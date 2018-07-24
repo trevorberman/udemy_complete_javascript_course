@@ -11,21 +11,9 @@ GAME RULES:
 
 var scores, roundScore, activePlayer;
 
-scores = [0, 0];
-roundScore = 0;
-// activePlayer = 0 because Player 1 always begins by default.
-activePlayer = 0;  // Reads active player's score out of scores array.
+init();
 
-// Hide dice at game start.
-document.querySelector('.dice').style.display = 'none';
-
-// Set player 'round' and 'global' scores to 0.
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-
-// Dice roll event listener with anonymous callback function
+// Roll Dice event listener with anonymous callback function
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
   // Roll the dice to get a random number >= 1 && <= 6
@@ -47,7 +35,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   }
 });
 
-// Hold score event listener with anonymous callback function
+// Hold Score event listener with anonymous callback function
 document.querySelector('.btn-hold').addEventListener('click', function() {
 
   // Add CURRENT round score to global score.
@@ -57,7 +45,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
   document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
   // Check if the player won the game.
-  if (scores[activePlayer] >= 100) {
+  if (scores[activePlayer] >= 20) {
     document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
     document.querySelector('.dice').style.display = 'none';
     document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -87,6 +75,40 @@ function  nextPlayer() {
   // TODO: Improve UX so player sees a 1 rolled before clearing the score and switching players.
 }
 
+// New Game event listener
+// Passes 'init' function to event listener rather than creating anonymous function an dcalling the init function from inside it.
+document.querySelector('.btn-new').addEventListener('click', init);
+
+function init() {
+  scores = [0, 0];
+  roundScore = 0;
+  // activePlayer = 0 because Player 1 always begins by default.
+  activePlayer = 0;  // Reads active player's score out of scores array.
+
+  // Hide dice at game start.
+  document.querySelector('.dice').style.display = 'none';
+
+  // Set player 'round' and 'global' scores to 0.
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+
+  // Set default player names
+  document.getElementById('name-0').textContent = 'Player 1';
+  document.getElementById('name-1').textContent = 'Player 2';
+
+  // Set default player info styles
+  document.querySelector('.player-0-panel').classList.remove('active');
+  document.querySelector('.player-1-panel').classList.remove('active');
+  document.querySelector('.player-0-panel').classList.remove('winner');
+  document.querySelector('.player-1-panel').classList.remove('winner');
+
+  // Set default 1st player styles
+  document.querySelector('.player-0-panel').classList.add('active');
+
+
+}
 
 // FOR LATER USE
 // ----------------------------
