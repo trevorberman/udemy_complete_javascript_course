@@ -48,7 +48,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
     // Check if the player won the game.
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
 
       // Show the winner. Set winner styles and remove active player styles.
       document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
@@ -120,9 +120,15 @@ function init() {
   document.querySelector('.player-0-panel').classList.add('active');
 }
 
-// FOR LATER USE
-// ----------------------------
-// document.querySelector('#current-' + activePlayer).textContent = dice;
+/*
+3-part Coding Challenge
+Change the game functionality in the following ways:
 
-// var x = document.querySelector('#score-0').textContent;
-// console.log(x);
+1. A player loses their ENTIRE score when they roll two 6's in a row. After that, it's the next players turn. (HINT: Always save the previous dice roll in a seperate variable.)
+
+2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. This is a good oportunity to use Google to build some coding skills you haven't yet learned. (HINT: You can read that value with the JS .value property.)
+
+3. Add another dice to the game so that there are two different dice visible. A player now looses their current score when one of the dice rolls a 1. (HINT: You will need CSS to position the 2nd dice, so take a look at the CSS code for the first one.)
+
+EXTRA: Improve UX so player sees the dice rolled a 1 before clearing the score and switching players.
+*/
