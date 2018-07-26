@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, previousRoll;
 
 init();
 
@@ -25,12 +25,22 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDom.style.display = 'block';
     diceDom.src = 'dice-' + dice + '.png';
 
+    // Clear the 'global' score IF two 6's are rolled in a row.
     // Update the 'round' score IF the rolled number was NOT a 1.
-    if (dice !== 1) {
+    if (dice + previousRoll === 12) {
+      // Player loses their ENTIRE score and it's the next players turn
+      // console.log('You hit two 6\'s in a row!');  // TEST
+      scores[activePlayer] = 0;
+      document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+      nextPlayer();
+    } else if (dice !== 1) {
+      // Store the value of this roll in previousRoll
+      previousRoll = dice;
       // Add the roll to 'round' score.
       roundScore += dice;
       document.querySelector('#current-' + activePlayer).textContent = roundScore;
     } else {
+      // console.log('You hit a 1!');  // TEST
       // Switch to next player.
       nextPlayer();
     }
@@ -71,6 +81,9 @@ function  nextPlayer() {
   // Switch to next player.
   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 
+  // Reset previous roll
+  previousRoll = 0;
+
   // Reset 'round' score to 0.
   roundScore = 0;
   document.getElementById('current-0').textContent = '0';
@@ -94,8 +107,9 @@ function init() {
   scores = [0, 0];
   roundScore = 0;
   // activePlayer = 0 because Player 1 always begins by default.
-  activePlayer = 0;  // Reads active player's score out of scores array.
+  activePlayer = 0;
   gamePlaying = true;
+  previousRoll = 0;  // Initialize and set default value
 
   // Hide dice at game start.
   document.querySelector('.dice').style.display = 'none';
@@ -131,4 +145,6 @@ Change the game functionality in the following ways:
 3. Add another dice to the game so that there are two different dice visible. A player now looses their current score when one of the dice rolls a 1. (HINT: You will need CSS to position the 2nd dice, so take a look at the CSS code for the first one.)
 
 EXTRA: Improve UX so player sees the dice rolled a 1 before clearing the score and switching players.
+
+EXTRA EXTRA: Build tally of wins for each player so they can play best x of y.
 */
