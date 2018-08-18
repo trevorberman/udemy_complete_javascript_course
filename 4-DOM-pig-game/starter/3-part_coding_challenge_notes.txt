@@ -1,0 +1,26 @@
+3-part Coding Challenge - NOTES
+----------------------------------
+
+2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. This is a good opportunity to use Google to build some coding skills you haven't yet learned. (HINT: You can read that value with the JS .value property.)
+
+- AFTER USER SELECTS New Game:
+-- Add message text, input field, and submit button to the game board, centered below New Game control.
+**!! Put this in the Init Function as default behavior !!**
+<!--
+"Enter the score you'll play up to." <-- message text
+"100" <-- input field default
+"Submit" <-- submit button text
+-->
+** Enhance by putting this in a message/alert popup or modal.
+
+- AFTER USER SUBMITS the winning score threshold:
+-- Remove the input field and submit button.
+-- Display the winning score threshold (WST) for reference.
+<!--
+"You're playing to NUM" <-- message text above Roll Dice control
+OR
+"1st player to NUM wins!"
+-->
+
+In app.js, score is "set" by comparing if activePlayer has met/exceeded someValue (>= someValue) within the Hold Score Event Listener. someValue was originally hard-coded into the game at this point.
+- Use value, from the input field or WST reference, to dynamically set the winning score threshold per game.
