@@ -2,9 +2,9 @@
 GAME RULES:
 
 - The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
+- In each turn, a player rolls a dice as many times as he whishes. Each result gets added to his ROUND score
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
+- The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
@@ -100,9 +100,10 @@ function  nextPlayer() {
 }
 
 // New Game event listener
-// Passes 'init' function to event listener rather than creating anonymous function an dcalling the init function from inside it.
+// Passes 'init' function to event listener rather than creating anonymous function and calling the init function from inside it.
 document.querySelector('.btn-new').addEventListener('click', init);
 
+// Initiates game by setting defaults for players' scores, turns, and displays
 function init() {
   scores = [0, 0];
   roundScore = 0;
@@ -138,13 +139,18 @@ function init() {
 3-part Coding Challenge
 Change the game functionality in the following ways:
 
+// Completed #1 07262018
 1. A player loses their ENTIRE score when they roll two 6's in a row. After that, it's the next players turn. (HINT: Always save the previous dice roll in a seperate variable.)
 
+// TODO
 2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. This is a good oportunity to use Google to build some coding skills you haven't yet learned. (HINT: You can read that value with the JS .value property.)
 
+// TODO
 3. Add another dice to the game so that there are two different dice visible. A player now looses their current score when one of the dice rolls a 1. (HINT: You will need CSS to position the 2nd dice, so take a look at the CSS code for the first one.)
 
+// TODO
 EXTRA: Improve UX so player sees the dice rolled a 1 before clearing the score and switching players.
 
+// TODO
 EXTRA EXTRA: Build tally of wins for each player so they can play best x of y.
 */
