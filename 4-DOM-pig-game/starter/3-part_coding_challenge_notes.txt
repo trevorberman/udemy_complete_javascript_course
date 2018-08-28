@@ -9,7 +9,7 @@
 <!--
 "Enter the score you'll play up to." <-- message text
 "100" <-- input field default
-"Submit" <-- submit button text
+"Submit" + https://ionicons.com/v2/ <-- submit button text and icon
 -->
 ** Enhance by putting this in a message/alert popup or modal.
 
@@ -17,9 +17,7 @@
 -- Remove the input field and submit button.
 -- Display the winning score threshold (WST) for reference.
 <!--
-"You're playing to NUM" <-- message text above Roll Dice control
-OR
-"1st player to NUM wins!"
+"1st player to NUM wins!" <-- message text above Roll Dice control
 -->
 
 In app.js, score is "set" by comparing if activePlayer has met/exceeded someValue (>= someValue) within the Hold Score Event Listener. someValue was originally hard-coded into the game at this point.
