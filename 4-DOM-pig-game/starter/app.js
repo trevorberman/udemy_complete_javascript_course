@@ -135,6 +135,27 @@ function init() {
   document.querySelector('.player-0-panel').classList.add('active');
 }
 
+// Set Score event listener
+//document.querySelector('.btn-score').addEventListener('click', function() {
+document.getElementById('scoreSubmit').addEventListener('submit', function(evt) {
+
+  // Prevent default submit event
+  evt.preventDefault();
+
+  // Hide set-score form after players submit a value
+  document.querySelector('.set-score').style.dislay = 'none';
+
+  // Insert 'winningScore' value into winning-score-threshold message
+  var winningScore = document.getElementById('winningScore').value;
+  document.querySelector('.winning-score-threshold p span').textContent = winningScore;
+
+  // Show the winning-score-threshold for reference
+  document.querySelector('winning-score-threshold').style.display = 'block';
+
+  // ?? Move gamePlaying = true; from init() to anonymous function on this event listener to disable all other controls until user sets a score. ??
+});
+
+
 /*
 3-part Coding Challenge
 Change the game functionality in the following ways:
@@ -143,7 +164,7 @@ Change the game functionality in the following ways:
 1. A player loses their ENTIRE score when they roll two 6's in a row. After that, it's the next players turn. (HINT: Always save the previous dice roll in a seperate variable.)
 
 // TODO
-2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. This is a good oportunity to use Google to build some coding skills you haven't yet learned. (HINT: You can read that value with the JS .value property.)
+2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. This is a good opportunity to use Google to build some coding skills you haven't yet learned. (HINT: You can read that value with the JS .value property.)
 
 // TODO
 3. Add another dice to the game so that there are two different dice visible. A player now looses their current score when one of the dice rolls a 1. (HINT: You will need CSS to position the 2nd dice, so take a look at the CSS code for the first one.)

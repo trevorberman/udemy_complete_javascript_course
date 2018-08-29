@@ -178,9 +178,11 @@ form {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.set-score { top: 225px; }
+.set-score, .winning-score-threshold { top: 225px; }
 
-.set-score p {
+.winning-score-threshold { display: none; }
+
+.set-score p, .winning-score-threshold p {
   margin-bottom: 15px;
   font-size: 30px;
   line-height: 30px;
