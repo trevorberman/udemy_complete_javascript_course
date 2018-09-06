@@ -31,9 +31,9 @@
 
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
 
-            <form class="set-score">
+            <form class="set-score" id="setScore">
               <p>Enter the score you'll play up to.</p>
-              <input type="number" name="winningScore" id="winningScore" value="100">
+              <input type="number" name="winningScore" id="winningScore" value="100" min="1" max="999">
               <button class="btn-score"><input type="submit" id="scoreSubmit" value="Submit"><i class="ion-ios-arrow-right"></i></button>
             </form>
 
