@@ -22,3 +22,21 @@
 
 In app.js, score is "set" by comparing if activePlayer has met/exceeded someValue (>= someValue) within the Hold Score Event Listener. someValue was originally hard-coded into the game at this point.
 - Use value, from the input field or WST reference, to dynamically set the winning score threshold per game.
+
+----------------------------------
+
+3. Add another dice to the game so that there are two different dice visible. A player now looses their current score when one of the dice rolls a 1. (HINT: You will need CSS to position the 2nd dice, so take a look at the CSS code for the first one.)
+
+- Add another dice <img> into HTML.
+
+- Adjust the CSS so dice are positioned next to each other across breakpoints.
+
+- In app.js
+-- In Roll Dice event listener
+--- Relearn how var dice = Math.floor(Math.random() * 6) + 1; works.
+--- Will you need two variables (or an array??) for this to store and display the rolls for each discreet die?
+--- Taking the above into account, determine how to check if either of the dice in a roll === 1.
+--- Taking the above into account, does the round and global scoring still work as expected?
+--- Taking the above into account, does the "rolled two 6's in a row" logic still work as expected?
+
+----------------------------------
