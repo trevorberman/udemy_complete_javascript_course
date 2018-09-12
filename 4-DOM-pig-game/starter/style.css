@@ -141,12 +141,19 @@ i {
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
 
-.dice {
+.dice-tray {
     position: absolute;
     left: 50%;
-    top: 178px;
+    /* top: 178px; */
+    top: 200px;
     transform: translateX(-50%);
+    /* height: 100px; */
+    /* box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10); */
+}
+
+.dice-tray img {
     height: 100px;
+    margin: 0 15px 0 15px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
@@ -191,7 +198,8 @@ form {
   position: absolute;
   /* width: 230px; */
   width: 250px;
-  top: 315px;
+  /* top: 315px; */
+  top: 325px;
   left: 51%;
   transform: translateX(-50%);
   color: #555;

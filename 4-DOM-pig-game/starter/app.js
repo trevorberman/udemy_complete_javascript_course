@@ -18,12 +18,28 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
   if (gamePlaying) {
     // Roll the dice to get a random number >= 1 && <= 6
-    var dice = Math.floor(Math.random() * 6) + 1;
+    // var dice = Math.floor(Math.random() * 6) + 1;
+    var dice = [];
+    var diceDom = document.querySelectorAll('.dice');
+    for (var i = 0; i < diceDom.length; i++) {
+      // diceDom[i].style.display = 'block';
+      dice[i] = Math.floor(Math.random() * 6) + 1;
+    }
 
     // Display the result.
+    /*
     var diceDom = document.querySelector('.dice');
     diceDom.style.display = 'block';
     diceDom.src = 'dice-' + dice + '.png';
+    */
+    document.querySelector('.dice-tray').style.display = 'block';
+
+    // var diceDom = document.querySelectorAll('.dice');
+    for (var i = 0; i < diceDom.length; i++) {
+      // diceDom[i].style.display = 'block';
+      diceDom[i].src = 'dice-' + dice[i] + '.png';
+    }
+    // diceDom.src = 'dice-' + dice + '.png';
 
     // Clear the 'global' score IF two 6's are rolled in a row.
     // Update the 'round' score IF the rolled number was NOT a 1.
@@ -67,7 +83,8 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 
       // Hide the dice.
-      document.querySelector('.dice').style.display = 'none';
+      // document.querySelector('.dice').style.display = 'none';
+      document.querySelector('.dice-tray').style.display = 'none';
 
       // End the game play.
       gamePlaying = false;
@@ -95,7 +112,8 @@ function  nextPlayer() {
   document.querySelector('.player-1-panel').classList.toggle('active');
 
   // Hide the dice until the now active player rolls.
-  document.querySelector('.dice').style.display = 'none';
+  // document.querySelector('.dice').style.display = 'none';
+  document.querySelector('.dice-tray').style.display = 'none';
 
   // TODO: Improve UX so player sees a 1 rolled before clearing the score and switching players.
 }
@@ -114,7 +132,14 @@ function init() {
   previousRoll = 0;  // Initialize and set default value.
 
   // Hide dice at game start.
-  document.querySelector('.dice').style.display = 'none';
+  // document.querySelector('.dice').style.display = 'none';
+  document.querySelector('.dice-tray').style.display = 'none';
+  /*
+  var els = document.querySelectorAll('.dice');
+  for (var i = 0; i < els.length; i++) {
+    els[i].style.display = 'none';
+  }
+  */
 
   // Hide the winning-score-threshold at game start.
   document.querySelector('.winning-score-threshold').style.display = 'none';
